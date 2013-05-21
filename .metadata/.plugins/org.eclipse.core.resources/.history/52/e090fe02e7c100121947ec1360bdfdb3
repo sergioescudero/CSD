@@ -1,0 +1,17 @@
+
+public class MailVerifier {
+
+	public boolean isValidEmailAddress(String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private boolean comprobarCaracteresValidos(String email){
+		boolean resultado = true;
+		String[] caracteresValidos = {" ", ","};
+		for (String caracter : caracteresValidos) {
+			resultado = resultado && email.contains(caracter);
+		}
+		return resultado;
+	}
+}

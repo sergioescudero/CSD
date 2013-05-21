@@ -1,0 +1,20 @@
+
+public class MailVerifier {
+
+	public boolean isValidEmailAddress(String email) {
+		boolean resultado = true;
+		
+		resultado = resultado && comprobarCaracteresValidos(email);
+			
+		return resultado;
+	}
+
+	private boolean isTodosLosCaracteresValidos(String email){
+		boolean resultado = true;
+		String[] caracteresValidos = {" ", ","};
+		for (String caracter : caracteresValidos) {
+			resultado = resultado && !email.contains(caracter);
+		}
+		return resultado;
+	}
+}

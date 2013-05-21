@@ -1,0 +1,6 @@
+package scrumcourse.env;
+
+public interface ITime {
+
+	public long end();
+}

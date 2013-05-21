@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class MailList {
+
+	public List<String> getMails(String listado) {
+		List<String> listaMails = new ArrayList<String>();
+		
+		String[] arrayMails = listado.split(",");
+		
+		for (String email : arrayMails) {
+			listaMails.add(email);
+		}
+		
+		return listaMails;
+	}
+
+	
+}

@@ -1,0 +1,17 @@
+package scrumcourse.env;
+
+public class TimeReal implements ITime {
+
+	@Override
+	public long start() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long end() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

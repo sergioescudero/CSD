@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class MailList {
+
+	public List<String> getMails(String listado) {
+		List<String> listaMails = new ArrayList<String>();
+		
+		String[] arrayMails = listado.split(",");
+		
+		for (String email : arrayMails) {
+			boolean esValido = new MailVerifier().isValidEmailAddress(email.trim());
+			if(esValido){
+				listaMails.add(email.trim());
+			}
+		}
+		
+		return listaMails;
+	}
+
+	
+}

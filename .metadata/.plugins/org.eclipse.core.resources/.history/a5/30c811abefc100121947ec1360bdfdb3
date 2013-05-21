@@ -1,0 +1,33 @@
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Test;
+
+
+public class TestMailList {
+
+	MailList mailList = new MailList();
+	@Test
+	public void testObtenerListado() {
+		String listado = "hemarque@gmail.com, jj@@acme.com, abc @hotmail.com, xyz@abc";
+		List<String> correos = mailList.getMails(listado); 
+		assertTrue(correos.contains("hemarque@gmail.com"));
+	}
+
+	@Test
+	public void testObtenerListadoCorreosValidos() {
+		String listado = "hemarque@gmail.com, jj@@acme.com, abc @hotmail.com, xyz@abc";
+		List<String> correos = mailList.getMails(listado); 
+		assertFalse(correos.contains("jj@@acme.com"));
+		assertFalse(correos.contains("abc @hotmail.com"));
+		assertFalse(correos.contains("xyz@abc"));
+	}
+	
+	@Test
+	public void testListadoSinDuplicados(){
+		String listado = "hemarque@gmail.com, hemarque@gmail.com";
+		List<String> correos = mailList.getMails(listado); 
+		assertTrue(correos.indexOf("hemarque@gmail.com") == correos.lastIndexOf("hemarque@gmail.com"));
+	}
+}

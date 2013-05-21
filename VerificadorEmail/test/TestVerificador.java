@@ -1,0 +1,32 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class TestVerificador {
+	MailVerifier mv = new MailVerifier();
+	
+	@Test
+	public void testContieneCaracteresInvalidos() {
+		assertFalse(mv.isValidEmailAddress("pepico @gmail.com"));
+		assertFalse(mv.isValidEmailAddress("pepico,@gmail.com"));
+		assertTrue(mv.isValidEmailAddress("pepico@gmail.com"));
+	}
+
+	@Test
+	public void testContieneAlMenosUnaArroba(){
+		assertFalse(mv.isValidEmailAddress("pepicogmail.com"));
+	}
+	
+	@Test
+	public void testSoloContieneUnaArroba(){
+		assertTrue(mv.isValidEmailAddress("hemarque@gmail.com"));
+		assertFalse(mv.isValidEmailAddress("hemarque@@gmail.com"));
+	}
+	
+	@Test
+	public void testTieneUnPuntoDespuesArroba(){
+		//assertTrue(mv.isValidEmailAddress("hemarque@gmail.com"));
+		assertFalse(mv.isValidEmailAddress("hemarque@gmailcom"));
+	}
+}

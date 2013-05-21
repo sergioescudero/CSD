@@ -1,0 +1,9 @@
+
+public class MailVerifier {
+
+	public boolean isValidEmailAddress(String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

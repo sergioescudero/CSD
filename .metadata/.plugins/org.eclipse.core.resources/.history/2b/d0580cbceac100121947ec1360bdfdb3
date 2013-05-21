@@ -1,0 +1,34 @@
+
+public class MailVerifier {
+
+	public boolean isValidEmailAddress(String email) {
+		boolean resultado = true;
+		
+		resultado = resultado && isTodosLosCaracteresValidos(email);
+		resultado = resultado && hasAlMenosUnaArroba(email);
+		resultado = resultado && hasSoloUnaArroba(email);
+		
+		return resultado;
+	}
+
+	private boolean hasSoloUnaArroba(String email) {
+		boolean resultado = true;
+		String [] listaArrobas = email.split(email);
+		resultado = resultado && (listaArrobas.length == 2);
+		
+		return resultado; 
+	}
+
+	private boolean hasAlMenosUnaArroba(String email) {
+		return email.contains("@");
+	}
+
+	private boolean isTodosLosCaracteresValidos(String email){
+		boolean resultado = true;
+		String[] caracteresValidos = {" ", ","};
+		for (String caracter : caracteresValidos) {
+			resultado = resultado && !email.contains(caracter);
+		}
+		return resultado;
+	}
+}

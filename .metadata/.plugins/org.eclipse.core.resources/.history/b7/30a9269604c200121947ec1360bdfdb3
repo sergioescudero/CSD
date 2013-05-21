@@ -1,0 +1,22 @@
+package scrumcourse.env;
+
+public class TimeFake {
+
+	private static final long NANOS_PER_SECONDS = 1000000000L;
+
+	private static final long SECONDS_PER_HOUR = 3600;
+	
+	private long startTime;
+	private long endTime;
+
+	public void start() {
+		startTime = System.nanoTime();
+		
+	}
+
+	public void end() {
+		endTime = startTime + 2 * SECONDS_PER_HOUR;
+		
+	}
+
+}

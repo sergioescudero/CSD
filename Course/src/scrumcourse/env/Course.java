@@ -1,0 +1,58 @@
+package scrumcourse.env;
+
+public class Course {
+
+	private static final long NANOS_PER_SECONDS = 1000000000L;
+
+	private static final long SECONDS_PER_HOUR = 3600;
+
+	private final String name;
+
+	private long startTime, endTime;
+
+	private long durationSeconds;
+
+	private ITime gestorTiempo;
+	
+	
+
+	public Course(String name) {
+		this.name = name;
+		gestorTiempo = new TimeReal();
+	}
+	
+	public Course (String name, java.lang.System gestorTiempo){
+		this.name = name;
+		this.gestorTiempo = gestorTiempo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getCollege() {
+		return System.getProperty("env.college");
+	}
+
+	public void start() {
+		startTime = gestorTiempo.nanoTime();
+	}
+
+	public void end() {
+		endTime = gestorTiempo.nanoTime();
+		durationSeconds = (endTime - startTime) / NANOS_PER_SECONDS;
+	}
+
+	public boolean isShort() {
+		return durationSeconds < 2 * SECONDS_PER_HOUR;
+	}
+
+	public boolean isLong() {
+		return !isShort();
+	}
+
+	public long getDurationSeconds() {
+		return durationSeconds;
+	}
+
+}
