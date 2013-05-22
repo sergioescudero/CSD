@@ -1,0 +1,37 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion">
+<body>
+	Comprobación del login de la app
+
+	<table c:execute="#insertado = altaUsuario(#userid, #pwd, #nombre, #mail)">
+		<tr>
+			<th c:set="#userid">Userid</th><th c:set="#nombre">nombre</th><th c:set="#mail">Mail</th><th c:set="#pwd">Password</th><th c:assertEquals="#insertado">Insertado?</th>
+		</tr>
+		<tr>
+			<td>juangomez</td><td>Juan Gomez</td><td>juan@micorreo.es</td><td>clave1</td><td>OK</td>
+		</tr>
+		<tr>
+			<td>pedrorivas</td><td>Pedro Rivas</td><td>pedro@micorreo.es</td><td>clave2</td><td>OK</td>
+		</tr>
+	</table>
+	
+	
+	Criterios de aceptación
+	<table c:execute="#result =comprobarLogin(#userid, #pwd)">
+		<tr>
+			<th c:set="#userid">Userid</th><th c:set="#pwd">Clave</th><th c:assertEquals="#result">Puede logarse?</th>
+		</tr>
+		<tr>
+			<td>juangomez</td><td>clave1</td><td>SI</td>
+		</tr>
+		<tr>
+			<td>pedrorivas</td><td>clave2</td><td>SI</td>
+		</tr>
+		<tr>
+			<td>juangomez</td><td>otraclave</td><td>NO</td>
+		</tr>
+		<tr>
+			<td>noexisto</td><td>otraclave</td><td>NO</td>
+		</tr>
+	</table>
+</body>
+</html>

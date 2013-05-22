@@ -5,4 +5,7 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.google.common.base.Objects"/>
 <fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="org.hamcrest.Description"/>
+<fullyQualifiedTypeName name="org.hamcrest.TypeSafeMatcher"/>
+<fullyQualifiedTypeName name="org.hamcrest.Matcher"/>
 </qualifiedTypeNameHistroy>
